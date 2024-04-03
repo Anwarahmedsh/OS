@@ -1,4 +1,5 @@
 public class PCB {
+    private static int processNum = 1;
     private int processID;
     private int priority;
     private int arrivalTime;
@@ -10,8 +11,9 @@ public class PCB {
     private int responseTime;
 
     // Constructor 
-    public PCB(processID, priority, arrivalTime, cpuBurst) {
-        this.processID = processID;
+    public PCB(priority, arrivalTime, cpuBurst) {
+        this.processID = "P" + processNum;
+        processNum++;// auto incremented 
         this.priority = priority;
         this.arrivalTime = arrivalTime;
         this.cpuBurst = cpuBurst;
@@ -112,6 +114,19 @@ public class PCB {
 
     public int getResponseTime() {
         return responseTime;
+    }
+    
+    // print info 
+     public void displayInfo() {
+        System.out.println("Process ID: " + processID);
+        System.out.println("Priority: " + priority);
+        System.out.println("Arrival Time: " + arrivalTime);
+        System.out.println("CPU Burst Time: " + cpuBurstTime);
+        System.out.println("Start Time: " + startTime);
+        System.out.println("Termination Time: " + terminationTime);
+        System.out.println("Turnaround Time: " + turnaroundTime);
+        System.out.println("Waiting Time: " + waitingTime);
+        System.out.println("Response Time: " + responseTime);
     }
 
 }
